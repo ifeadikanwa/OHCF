@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "42445667918",
+    "firebase_url": "https://ohcf-9741c.firebaseio.com",
+    "project_id": "ohcf-9741c",
+    "storage_bucket": "ohcf-9741c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42445667918:android:c4ff9fe6d736887f748d1f",
+        "android_client_info": {
+          "package_name": "com.example.ohcf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42445667918-gcarlu9btuhrecqktfmapob2n5gqkqh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOAXzxu7t2NMxEGGrnj0a_3vAARZwLclo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42445667918-gcarlu9btuhrecqktfmapob2n5gqkqh8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
