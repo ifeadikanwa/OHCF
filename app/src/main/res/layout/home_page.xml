@@ -12,7 +12,6 @@
         android:id="@+id/textView2"
         android:layout_width="291dp"
         android:layout_height="223dp"
-        android:font="@font/Roboto_Medium"
         android:fontFamily="@font/Roboto_Medium"
         android:gravity="center"
         android:text="Hi, Julie"
