@@ -1,5 +1,26 @@
 <resources>
     <string name="app_name">OHCF</string>
 
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="middle_initial">Middle Initial</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zip">ZIP</string>
+    <string name="home_phone">Home Phone #</string>
+    <string name="social_security">Social Security #</string>
+    <string name="DOB">Date of Birth</string>
+    <string name="age">Age</string>
+    <string name="sex">Sex</string>
+    <string name="marital_status">Marital Status</string>
+    <string name="drivers_lic_num">Drivers License #</string>
+    <string name="employee_name">Employee Name</string>
+    <string name="employee_address">Employee Address</string>
+    <string name="work_phone">Work Phone #</string>
+    <string name="email_address">Email Address</string>
+    <string name="cell_phone">Cell Phone #</string>
+    <string name="emerg_phone">Emergency Phone #</string>
+    <string name="emerg_contact_name">Emergency Contact Name</string>
 
 </resources>
