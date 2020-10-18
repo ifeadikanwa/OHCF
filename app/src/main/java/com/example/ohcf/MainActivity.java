@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.getMenu().findItem(R.id.home_page).setChecked(true);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationListener);
 
         Fragment theDefault = new HomeFragment();
