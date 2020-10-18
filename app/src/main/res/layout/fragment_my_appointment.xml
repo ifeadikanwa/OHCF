@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="My Appointment"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_bold"
         android:layout_gravity="start"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -24,7 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
         android:background="@drawable/ic_myappointment_orange"/>
 
     <ImageButton
