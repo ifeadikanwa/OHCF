@@ -22,5 +22,7 @@
     <string name="cell_phone">Cell Phone #</string>
     <string name="emerg_phone">Emergency Phone #</string>
     <string name="emerg_contact_name">Emergency Contact Name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
