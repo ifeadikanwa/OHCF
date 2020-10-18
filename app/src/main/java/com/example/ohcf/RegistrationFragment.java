@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +17,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class RegistrationFragment extends Fragment {
+    ImageButton back_button;
+    ImageButton forward_button;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,5 +67,28 @@ public class RegistrationFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_registration, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        back_button = view.findViewById(R.id.reg_backward_button1);
+        forward_button = view.findViewById(R.id.reg_forward_button1);
+
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new AppointmentPhotoFragment();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            }
+        });
+
+        forward_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new Registration2Fragment();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            }
+        });
+
+    }
 }
