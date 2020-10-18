@@ -16,6 +16,7 @@
         android:text="Guardian Information"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="25dp"
+        android:fontFamily="@font/roboto_bold"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="24sp"/>
