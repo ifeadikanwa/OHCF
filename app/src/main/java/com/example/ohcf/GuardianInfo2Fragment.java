@@ -6,10 +6,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.firestore.DocumentReference;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +23,16 @@ import android.widget.ImageButton;
  * create an instance of this fragment.
  */
 public class GuardianInfo2Fragment extends Fragment {
+    TextInputEditText address_edit;
+    TextInputEditText city_edit;
+    TextInputEditText state_edit;
+    TextInputEditText zip_edit;
+    TextInputEditText emer_contact_name_edit;
+    TextInputEditText emer_contact_phone_edit;
+    TextInputEditText home_phone_edit;
+
+    FirestoreRepository firestoreRepository = new FirestoreRepository();
+
     ImageButton back_button;
     ImageButton forward_button;
 
@@ -70,6 +86,13 @@ public class GuardianInfo2Fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        address_edit = view.findViewById(R.id.address);
+        city_edit = view.findViewById(R.id.city);
+        state_edit = view.findViewById(R.id.state);
+        zip_edit = view.findViewById(R.id.zip);
+        emer_contact_name_edit = view.findViewById(R.id.emergency_contact_name);
+        emer_contact_phone_edit = view.findViewById(R.id.emergency_phone);
+        home_phone_edit = view.findViewById(R.id.home_phone);
 
         back_button = view.findViewById(R.id.backward_button2);
         forward_button = view.findViewById(R.id.forward_button2);
@@ -85,10 +108,81 @@ public class GuardianInfo2Fragment extends Fragment {
         forward_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment = new GuardianInfo3Fragment();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+                CustomForm customForm = new CustomForm();
+
+                if(address_edit.getText().toString().trim().length() == 0 || address_edit.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Fields can not be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                    customForm.setAddress(address_edit.getText().toString());
+                }
+
+                if(city_edit.getText().toString().trim().length() == 0 || city_edit.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Fields can not be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                    customForm.setCity(city_edit.getText().toString());
+                }
+
+                if(state_edit.getText().toString().trim().length() == 0 || state_edit.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Fields can not be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                    customForm.setState(state_edit.getText().toString());
+                }
+
+                if(zip_edit.getText().toString().trim().length() == 0 || zip_edit.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Fields can not be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                    customForm.setZip(zip_edit.getText().toString());
+                }
+
+                if(emer_contact_name_edit.getText().toString().trim().length() == 0 || emer_contact_name_edit.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Fields can not be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                    customForm.setEmergency_contact_name(emer_contact_name_edit.getText().toString());
+                }
+
+                if(emer_contact_phone_edit.getText().toString().trim().length() == 0 || emer_contact_phone_edit.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Fields can not be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                    customForm.setEmergency_phone(emer_contact_phone_edit.getText().toString());
+                }
+
+                if(home_phone_edit.getText().toString().trim().length() == 0 || home_phone_edit.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Fields can not be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                    customForm.setHome_phone(home_phone_edit.getText().toString());
+                }
+
+                firestoreRepository.db
+                        .collection(FirestoreRepository.CUSTOM_FORM_COLLECTION)
+                        .add(customForm)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.i("User Info 1", "completed 1");
+                                goToNextFragment();
+                            }
+                        });
             }
         });
 
+    }
+
+    private void goToNextFragment() {
+        Fragment fragment = new GuardianInfo3Fragment();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
     }
 }

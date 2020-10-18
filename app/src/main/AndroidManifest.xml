@@ -18,7 +18,8 @@
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="ocr" /> <!-- To use multiple models: android:value="ocr,model2,model3" -->
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

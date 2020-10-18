@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -85,6 +86,8 @@ public class GuardianInfo3Fragment extends Fragment {
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getContext(), "Form Saved", Toast.LENGTH_SHORT).show();
+
                 Fragment fragment = new HomeFragment();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
             }

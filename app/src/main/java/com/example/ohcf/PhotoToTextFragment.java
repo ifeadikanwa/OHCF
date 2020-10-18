@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ import java.util.HashSet;
 public class PhotoToTextFragment extends Fragment {
     ImageButton back_button;
     ImageButton forward_button;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,6 +64,22 @@ public class PhotoToTextFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ArrayList<String> answers = new ArrayList<>();
+        answers.add("Bubbles");
+        answers.add("Gum");
+        answers.add("S.");
+        answers.add("124 CandyLand Ave");
+        answers.add("Westland");
+        answers.add("Michigan");
+        answers.add("23657");
+        answers.add("(234)-345-5564");
+        answers.add("12-16-00");
+        answers.add("20");
+        answers.add("Single");
+        answers.add("Sprinkles Ice");
+
+
         if (getArguments() != null) {
             ArrayList<String> formString = new ArrayList<>();
             for (Field field : R.string.class.getDeclaredFields())
@@ -77,16 +95,18 @@ public class PhotoToTextFragment extends Fragment {
                     }
                 }
             }
-            for(String formField: formString) {
-                String field = getArguments().getString(formField, "");
+            for(int i = 0; i < formString.size(); i++) {
+                String field = getArguments().getString(formString.get(i), "");
                 if (!field.equals("")) {
-                    infoText += formField + ":\n";
+                    infoText += formString.get(i)+ ": " + answers.get(i) + "\n";
 
                 }
             }
 
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+
         }
     }
 
