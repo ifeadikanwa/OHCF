@@ -87,7 +87,7 @@ public class AppointmentPhotoFragment extends Fragment {
         forward_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment = new RegistrationFragment();
+                Fragment fragment = new PhotoToTextFragment();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
             }
         });

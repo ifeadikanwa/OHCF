@@ -13,10 +13,10 @@ import android.widget.ImageButton;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link RegistrationFragment#newInstance} factory method to
+ * Use the {@link PhotoToTextFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RegistrationFragment extends Fragment {
+public class PhotoToTextFragment extends Fragment {
     ImageButton back_button;
     ImageButton forward_button;
 
@@ -29,7 +29,7 @@ public class RegistrationFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public RegistrationFragment() {
+    public PhotoToTextFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class RegistrationFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RegistrationFragment.
+     * @return A new instance of fragment PhotoToTextFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static RegistrationFragment newInstance(String param1, String param2) {
-        RegistrationFragment fragment = new RegistrationFragment();
+    public static PhotoToTextFragment newInstance(String param1, String param2) {
+        PhotoToTextFragment fragment = new PhotoToTextFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,20 +64,20 @@ public class RegistrationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registration, container, false);
+        return inflater.inflate(R.layout.fragment_photo_to_text, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        back_button = view.findViewById(R.id.reg_backward_button1);
-        forward_button = view.findViewById(R.id.reg_forward_button1);
+        back_button = view.findViewById(R.id.text_backward_button);
+        forward_button = view.findViewById(R.id.text_forward_button);
 
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment = new PhotoToTextFragment();
+                Fragment fragment = new AppointmentPhotoFragment();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
             }
         });
@@ -85,7 +85,7 @@ public class RegistrationFragment extends Fragment {
         forward_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment = new Registration2Fragment();
+                Fragment fragment = new RegistrationFragment();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
             }
         });

@@ -14,7 +14,6 @@
         <activity android:name=".CustomFormActivity" />
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".SignInActivity" />
-        <activity android:name=".CustomFormActivity" />
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
