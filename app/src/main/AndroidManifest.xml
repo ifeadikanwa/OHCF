@@ -12,6 +12,8 @@
         <activity android:name=".VerificationActivity"></activity>
         <activity android:name=".VerifiedActivity" />
         <activity android:name=".CustomFormActivity" />
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".SignInActivity" />
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
