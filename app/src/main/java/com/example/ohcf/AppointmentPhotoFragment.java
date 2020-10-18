@@ -84,18 +84,9 @@ public class AppointmentPhotoFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         formString = new ArrayList<>();
-        for (Field field : R.string.class.getDeclaredFields())
-        {
-            if (Modifier.isStatic(field.getModifiers()) && !Modifier.isPrivate(field.getModifiers()) && field.getType().equals(int.class))
-            {
-                try
-                {
-                    formString.add(getString(getResources().getIdentifier(field.getName(), "string", getActivity().getPackageName())));
-                } catch (IllegalArgumentException e)
-                {
-                    // ignore
-                }
-            }
+        FormFields f = new FormFields();
+        for(Integer i: FormFields.getFieldIds()) {
+            formString.add(getString(i));
         }
     }
 

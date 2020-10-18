@@ -58,30 +58,22 @@ public class PhotoToTextFragment extends Fragment {
     }
 
     String infoText = "";
-
+    HashSet<String> infoHash = new HashSet<>();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            FormFields f = new FormFields();
             ArrayList<String> formString = new ArrayList<>();
-            for (Field field : R.string.class.getDeclaredFields())
-            {
-                if (Modifier.isStatic(field.getModifiers()) && !Modifier.isPrivate(field.getModifiers()) && field.getType().equals(int.class))
-                {
-                    try
-                    {
-                        formString.add(getString(getResources().getIdentifier(field.getName(), "string", getActivity().getPackageName())));
-                    } catch (IllegalArgumentException e)
-                    {
-                        // ignore
-                    }
-                }
+
+            for(Integer i: FormFields.getFieldIds()) {
+                formString.add(getString(i));
             }
             for(String formField: formString) {
                 String field = getArguments().getString(formField, "");
-                if (!field.equals("")) {
+                if (!field.equals("") && !infoHash.contains(formField)) {
+                    infoHash.add(formField);
                     infoText += formField + ":\n";
-
                 }
             }
 
