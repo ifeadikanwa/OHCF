@@ -10,6 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,26 +57,54 @@ public class PhotoToTextFragment extends Fragment {
         return fragment;
     }
 
+    String infoText = "";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            ArrayList<String> formString = new ArrayList<>();
+            for (Field field : R.string.class.getDeclaredFields())
+            {
+                if (Modifier.isStatic(field.getModifiers()) && !Modifier.isPrivate(field.getModifiers()) && field.getType().equals(int.class))
+                {
+                    try
+                    {
+                        formString.add(getString(getResources().getIdentifier(field.getName(), "string", getActivity().getPackageName())));
+                    } catch (IllegalArgumentException e)
+                    {
+                        // ignore
+                    }
+                }
+            }
+            for(String formField: formString) {
+                String field = getArguments().getString(formField, "");
+                if (!field.equals("")) {
+                    infoText += formField + ":\n";
+
+                }
+            }
+
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
+    TextView infoTextView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_photo_to_text, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        infoTextView = view.findViewById(R.id.photoText);
+        infoTextView.setText(infoText);
         back_button = view.findViewById(R.id.text_backward_button);
         forward_button = view.findViewById(R.id.text_forward_button);
 
