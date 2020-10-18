@@ -51,14 +51,14 @@
         android:layout_marginEnd="20dp">
 
         <ImageButton
-            android:id="@+id/backward_button"
+            android:id="@+id/reg_backward_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_bi_arrow_left_circle"
             android:layout_alignParentLeft="true"/>
 
         <ImageButton
-            android:id="@+id/forward_button2"
+            android:id="@+id/reg_forward_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_bi_arrow_right_circle"

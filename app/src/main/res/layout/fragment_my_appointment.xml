@@ -20,6 +20,7 @@
         android:textSize="24sp"/>
 
     <ImageButton
+        android:id="@+id/my_appointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -27,6 +28,7 @@
         android:background="@drawable/ic_myappointment_orange"/>
 
     <ImageButton
+        android:id="@+id/add_appointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
