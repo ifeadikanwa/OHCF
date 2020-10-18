@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/grey"
-    tools:context=".AppointmentPhotoFragment">
+    tools:context=".RegistrationFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/Heading"
         android:layout_width="wrap_content"
@@ -34,19 +33,24 @@
         android:textSize="10sp"
         android:textStyle="bold" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_progress_pie"
         android:layout_gravity="center"
+        android:layout_marginTop="15dp"/>
 
-        android:background="@drawable/import_file" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_incompleteinfo"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="80dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp">
 
@@ -65,5 +69,7 @@
             android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
+
+
 
 </LinearLayout>
