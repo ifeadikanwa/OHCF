@@ -8,7 +8,6 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/Heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
@@ -22,7 +21,6 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/Heading2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
@@ -62,7 +60,7 @@
             android:layout_alignParentLeft="true"/>
 
         <ImageButton
-            android:id="@+id/reg_forward_button"
+            android:id="@+id/reg_forward_button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_bi_arrow_right_circle"
