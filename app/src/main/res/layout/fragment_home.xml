@@ -29,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
+        android:layout_marginLeft="25dp"
         android:background="@drawable/forms"
         android:layout_gravity="center" />
 
@@ -36,6 +37,7 @@
         android:id="@+id/Appointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
         android:background="@drawable/appointment"
         android:layout_gravity="center"/>
 
